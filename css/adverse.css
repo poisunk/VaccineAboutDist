@@ -267,22 +267,17 @@ textarea.report-item-input {
 
 .report-tag-add-input-box {
     padding: 5px;
-}
-
-.report-tag-add-input-box::after {
-    content: "";
-    position: absolute;
-    width: 230px;
-    height: 1px;
-    margin-top: 50.2px;
-    margin-left: -250px;
-    background-color: #2A2829;
+    border-bottom: #2A2829 2px solid;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .report-tag-add-input {
     border: none;
     height: 25px;
-    width: 200px;
+    width: 70%;
 }
 
 .report-tag-add-input:focus {
@@ -301,6 +296,7 @@ textarea.report-item-input {
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.7s;
+    width: 20%;
 }
 
 .report-tag-add-submit:hover {
@@ -490,22 +486,18 @@ textarea.report-item-input {
 
 .table-vaccine-add-input-box {
     padding: 5px;
-}
-
-.table-vaccine-add-input-box::after {
-    content: "";
-    position: absolute;
-    width: 230px;
-    height: 1px;
-    margin-top: 50.2px;
-    margin-left: -250px;
-    background-color: #2A2829;
+    border: #2A2829 2px solid;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
 
 .table-vaccine-add-input {
     border: none;
     height: 25px;
-    width: 200px;
+    width: 70%;
 }
 
 .table-vaccine-add-input:focus {
@@ -524,6 +516,7 @@ textarea.report-item-input {
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.7s;
+    width: 20%;
 }
 
 .table-vaccine-add-submit:hover {
