@@ -59,10 +59,11 @@ body {
 
 .search-panel-submit {
     width: 100%;
-    /* 子元素居中 */
     display: flex;
     justify-content: center;
     padding: 10px;
+    position: relative;
+    margin-bottom: 15px;
 }
 
 #adverse-search-submit-button {
@@ -388,4 +389,10 @@ body {
 .adverse-pagination-box {
     width: min-content;
     margin: 10px auto;
+}
+
+.search-option-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

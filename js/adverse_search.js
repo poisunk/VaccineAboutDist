@@ -1,5 +1,6 @@
 var vaccineId
 var symptomId
+var isSearchResult = false
 $(function () {
     initVaccineSelectList()
     initSymptomSelectList()
@@ -10,11 +11,20 @@ $(function () {
     $('#adverse-search-submit-button').on('click', function () {
         const keyword = $('#adverse-search-input').val()
         if (vaccineId != undefined || symptomId != undefined) {
-            searchAdverseResult()
+            if (isSearchResult) {
+                searchAdverseResult()
+            }else {
+                searchAdverseById()
+            }
             return
         }
         searchAdverse(keyword)
     })
+
+    $('#adverse-search-option').on('click', function () {
+        isSearchResult = $(this).prop('checked')
+    })
+
 
 
 })
@@ -86,6 +96,16 @@ function searchAdverse(keyword) {
             hideLoading("#search-result-panel", "#search-result-box")
         },
         keyword = keyword
+    )
+}
+
+function searchAdverseById() {
+    showLoading("#search-result-panel")
+    loadAdverseById(
+        onSuccess = function (json) {
+            handleAdverse(json.data.data)
+            hideLoading("#search-result-panel", "#search-result-box")
+        }
     )
 }
 
@@ -287,6 +307,28 @@ function loadAdverse(onSuccess, keyword, page = 1, pageSize = 21) {
         dataType: "json",
         data: query,
         success: function (data) {
+            onSuccess(data)
+        }
+    })
+}
+
+function loadAdverseById(onSuccess, page=1, pageSize=21) {
+    const query = {
+        page: page,
+        pageSize: pageSize
+    }
+    if (vaccineId != undefined) {
+        query.vaccineId = vaccineId
+    }
+    if (symptomId != undefined) {
+        query.oaeId = symptomId
+    }
+    $.ajax({
+        url: "http://43.140.194.248/api/adverse",
+        type: "GET",
+        dataType: "json",
+        data: query,
+        success: function(data) {
             onSuccess(data)
         }
     })
