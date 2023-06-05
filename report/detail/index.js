@@ -34,7 +34,7 @@ function renderAdverseDetail(detail) {
                 </tr>
             `)
         html.find("td.oae_term").on('click', () => {
-            window.open(`../oaeLabel.html?oaeId=${s.oaeId}`)
+            window.open(`/oae/index.html?oaeId=${s.oaeId}`)
         })
         $("#detail-item-symptom").append(html)
     })
@@ -54,7 +54,7 @@ function renderAdverseDetail(detail) {
                 </tr>
             `)
         html.find("td.vaccine_name").on('click', () => {
-            window.open(`./vaccine_detail.html?vaccineId=${v.id}`)
+            window.open(`/vaccine/detail/index.html?vaccineId=${v.id}`)
         })
         $("#detail-item-vaccine").append(html)
     })

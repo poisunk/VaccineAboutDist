@@ -221,7 +221,7 @@ function handleAdverse(list) {
     $.each(list, (index, e) => {
         const dom = createResultItem(e)
         dom.click(function () {
-            window.open(`/page/adverse_detail.html?adverseId=${e.id}`)
+            window.open(`/report/detail/index.html?adverseId=${e.id}`)
         })
         $('#search-result-box').append(dom)
     })

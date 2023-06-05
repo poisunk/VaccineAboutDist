@@ -90,7 +90,7 @@ function createAdverseItem(result) {
         element.find(".tag-container").append(`<div class="tag-item">${e.symptom}</div>`)
     })
     element.on("click", () => {
-        window.open(`adverse_detail.html?adverseId=${result.id}`)
+        window.open(`/report/detail/index.html?adverseId=${result.id}`)
     })
     return element
 }
